@@ -1,5 +1,5 @@
 /*reset*/
-*,:after,:before{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}*{margin:0;padding:0;list-style:none;border:0;outline:0;font-size:100%;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-transition:.3s linear;-moz-transition:.3s linear;-ms-transition:.3s linear;-o-transition:.3s linear;transition:.3s linear}body,html{height:100%}a{text-decoration:none}b,strong{font-weight:900!important}em,i{font-style:italic!important}table{display:table;table-layout:fixed}.cf:after,.cf:before{content:"";display:table}.cf:after{clear:both}.cf{zoom:1}
+*,:after,:before{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}*{margin:0;padding:0;list-style:none;border:0;outline:0;font-size:100%;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;/*-webkit-transition:.3s linear;-moz-transition:.3s linear;-ms-transition:.3s linear;-o-transition:.3s linear;transition:.3s linear*/}body,html{height:100%}a{text-decoration:none}b,strong{font-weight:900!important}em,i{font-style:italic!important}table{display:table;table-layout:fixed}.cf:after,.cf:before{content:"";display:table}.cf:after{clear:both}.cf{zoom:1}
 /*reset*/
 
 #header {
@@ -19,11 +19,17 @@
     }
 
         #gameboard table  tr  td {
-            width: 20px;
-            height: 20px;
+            width: 27px;
+            height: 27px;
             border: 1px solid #000;
         }
 
-            #gameboard  table  tr  td.active {
-                background: #888;
-            }
+            #gameboard  table  tr  td.player1 {     background: url(../img/1407159027_icon-ios7-circle-outline.png) no-repeat center center;/* background: #888;*/       }
+            #gameboard  table  tr  td.player2 {     background: url(../img/1407159066_672366-x.png) no-repeat center center;/* background: #801;*/       }
+/*
+    Glyph icons courtesy:
+    https   ://www.iconfinder.com/icons/293657/x_icon#size=24
+    https   ://www.iconfinder.com/icons/211717/circle_outline_icon#size=24
+    License :	MIT License
+    By      :	Ionicons, jxnblk
+*/
