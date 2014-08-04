@@ -6,3 +6,24 @@
     height: 44px;
     background: #4878B8;
 }
+#gameboard {
+    width: 99%;
+    margin: 10px auto;
+    height: 100%;
+    text-align: center;
+}
+
+    #gameboard > table {
+        border: 1px solid #ccc;
+        
+    }
+
+        #gameboard > table > tr > td {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #000;
+        }
+
+            #gameboard > table > tr > td.active {
+                background: #888;
+            }

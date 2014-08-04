@@ -1,7 +1,7 @@
 <!doctype html>
 <html ng-app>
     <head>
-        <title>Game of Life</title>
+        <title>Multi Dimensional Tic Tac Toe</title>
         <link rel="stylesheet" href="css/main.css" />
     </head>
     <body>
@@ -15,9 +15,10 @@
         <script src="js/jquery-1.11.1.js"></script>
         <script src="js/engine.js"></script>
         <script>
+            var size = 3;
             $( function () {
                 game.init( $("#gameboard"), {
-            
+                    size : 3
                 });
             });
             
