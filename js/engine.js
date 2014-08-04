@@ -20,64 +20,56 @@ $( function () {
     }
     
     
-    function scanForWinner() {
-        var i, j;
-        
-        
-        for ( i=0,j=0; i < _options.size ; i++, j++ ){                      // Scan diagonaly
-                if ( evaluate (_game[i][j], i , j) ) {
-                    break;
-                }
-//                evaluate (_game[i][j]);
-        }
-        
-        for ( i=0; i < _options.size ; i++){
-            for ( j=0; j< _options.size ; j++ ) {                           // Scan row-wise
-//                evaluate (_game[i][j]);
-                if ( evaluate (_game[i][j], i , j) ) {
-                    break;
-                }
+    function scanForWinner( X, Y ) {
+        var i, j, score=0;
+        _playerTurn && console.log('Point: g(' + X + ',' + Y + ') = ' + _game[X][Y]);
+
+        if ( X == Y ) {
+            
+                
+            for ( score=0, i=0, j=0 ; i < _options.size ; i++, j++ ) {               // Scan diagonaly
+                score += _game[i][j];
             }
+            if( declareWinner(score) ) return;
+
+
+
+            for ( score=0, i=_options.size-1, j=0; i > 0 ; i--, j++ ) {               // Scan diagonaly
+//            for ( score=0, i=_options.size-1, j=0; i < _options.size ; i--, j++ ) { 
+                score += _game[i][j];
+            }
+            console.log(score);
+            if( declareWinner(score) ) return;
+
+
+              
+        } else {
+        
+            for ( score=0, i=X, j=0 ; j < _options.size ; j++ ) {               // Scan VERTICALLY
+                score += _game[i][j];
+            }
+            if( declareWinner(score) ) return;
+            
+            
+            
+            for ( score=0, i=0, j=Y ; i < _options.size ; i++ ) {               // Scan HORIZONTALLY
+                score += _game[i][j];
+            }
+            if( declareWinner(score) ) return;
+            
+            
         }
         
-        for ( j=0; j < _options.size ; j++){
-            for ( i=0; i< _options.size ; i++ ) {                           // Scan column-wise
-//                evaluate (_game[i][j]);
-                if ( evaluate (_game[i][j], i , j) ) {
-                    break;
-                }
-            }
-        }
-//        console.log(_score1, _score2);
+        
+
         
     }
     
-    function evaluate ( g , i, j) {
-        if ( g == -1) {
-            _score1 = 0;
-            _score2 = 0;
-//            console.log( "-1", i, j);
-            return;
-        }
-        if ( g == 1) {
-            _score1++;
-//            console.log( "1", i, j);
-            
-        }
-        if ( g == 2) {
-            _score2++;
-//            console.log( "2", i, j);
-        }
-        if ( _score1 === _options.size ) {
-            alert ("Player 1 is the winner");
-            //resetGame ();
-            return true;
-        }
-        if ( _score2 === _options.size ) {
-            alert ("Player 2 is the winner");
-            //resetGame ();
-            return true;
-        }
+    function declareWinner ( score ) {
+        if (score < _options.size)                          {   return false;   }
+        if ( score == _options.size && !_playerTurn )       {   alert ('Player 2 won'); return true;    }
+        if ( score == (2 * _options.size) && _playerTurn)   {   alert ('Player 1 won'); return true;    }
+        return false;
     }
     
     
@@ -118,7 +110,7 @@ $( function () {
                 
                 $(tr).append( td );
 
-                _game [ i ][ j ] = -1;
+                _game [ i ][ j ] = 0;
                 _cell [ 'td-' + i +',' + j ] = td;
                 
                 
@@ -142,7 +134,7 @@ $( function () {
                         _playerTurn = true;
                     }
                     
-                    scanForWinner();
+                    scanForWinner( X, Y );
                     $td.off();
                 });
                 
