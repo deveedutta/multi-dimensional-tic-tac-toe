@@ -13,17 +13,17 @@
     text-align: center;
 }
 
-    #gameboard > table {
+    #gameboard table {
         border: 1px solid #ccc;
         
     }
 
-        #gameboard > table > tr > td {
+        #gameboard table  tr  td {
             width: 20px;
             height: 20px;
             border: 1px solid #000;
         }
 
-            #gameboard > table > tr > td.active {
+            #gameboard  table  tr  td.active {
                 background: #888;
             }
