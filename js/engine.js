@@ -25,45 +25,58 @@ $( function () {
         
         
         for ( i=0,j=0; i < _options.size ; i++, j++ ){                      // Scan diagonaly
-                evaluate (_game[i][j]);
+                if ( evaluate (_game[i][j], i , j) ) {
+                    break;
+                }
+//                evaluate (_game[i][j]);
         }
         
         for ( i=0; i < _options.size ; i++){
             for ( j=0; j< _options.size ; j++ ) {                           // Scan row-wise
-                evaluate (_game[i][j]);
+//                evaluate (_game[i][j]);
+                if ( evaluate (_game[i][j], i , j) ) {
+                    break;
+                }
             }
         }
         
         for ( j=0; j < _options.size ; j++){
             for ( i=0; i< _options.size ; i++ ) {                           // Scan column-wise
-                evaluate (_game[i][j]);
+//                evaluate (_game[i][j]);
+                if ( evaluate (_game[i][j], i , j) ) {
+                    break;
+                }
             }
         }
-        console.log(_score1, _score2);
+//        console.log(_score1, _score2);
         
     }
     
-    function evaluate ( g ) {
+    function evaluate ( g , i, j) {
         if ( g == -1) {
             _score1 = 0;
             _score2 = 0;
+//            console.log( "-1", i, j);
             return;
         }
         if ( g == 1) {
             _score1++;
+//            console.log( "1", i, j);
+            
         }
         if ( g == 2) {
             _score2++;
+//            console.log( "2", i, j);
         }
         if ( _score1 === _options.size ) {
             alert ("Player 1 is the winner");
             //resetGame ();
-            return;
+            return true;
         }
-        if ( _score2 === 2 * _options.size ) {
+        if ( _score2 === _options.size ) {
             alert ("Player 2 is the winner");
             //resetGame ();
-            return;
+            return true;
         }
     }
     
