@@ -1,0 +1,8 @@
+/*reset*/
+*,:after,:before{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}*{margin:0;padding:0;list-style:none;border:0;outline:0;font-size:100%;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-transition:.3s linear;-moz-transition:.3s linear;-ms-transition:.3s linear;-o-transition:.3s linear;transition:.3s linear}body,html{height:100%}a{text-decoration:none}b,strong{font-weight:900!important}em,i{font-style:italic!important}table{display:table;table-layout:fixed}.cf:after,.cf:before{content:"";display:table}.cf:after{clear:both}.cf{zoom:1}
+/*reset*/
+
+#header {
+    height: 44px;
+    background: #4878B8;
+}
