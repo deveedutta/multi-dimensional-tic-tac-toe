@@ -31,11 +31,10 @@ $( function () {
                 score += _game[i][j];
             }
             if( declareWinner(score) ) return;
+		}
 
-
-
-            for ( score=0, i=_options.size-1, j=0; i > 0 ; i--, j++ ) {               // Scan diagonaly
-//            for ( score=0, i=_options.size-1, j=0; i < _options.size ; i--, j++ ) { 
+		if ( X == _options.size-1-Y ) {
+            for ( score=0, i=0, j=_options.size-1; i < _options.size ; i++, j-- ) {               // Scan diagonaly
                 score += _game[i][j];
             }
             console.log(score);
@@ -43,7 +42,7 @@ $( function () {
 
 
               
-        } else {
+        }
         
             for ( score=0, i=X, j=0 ; j < _options.size ; j++ ) {               // Scan VERTICALLY
                 score += _game[i][j];
@@ -58,7 +57,7 @@ $( function () {
             if( declareWinner(score) ) return;
             
             
-        }
+     
         
         
 
